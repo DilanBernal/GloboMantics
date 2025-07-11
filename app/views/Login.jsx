@@ -19,14 +19,14 @@ const LoginScreen = ({ navigation }) => {
   };
 
   const creacteAccount = () => {
-    navigation.navigate('register');
+    navigation.navigate('Register');
   };
 
   const loginUser = () => {
     if (!userName) {
-      Alert.alert('plea');
+      Alert.alert('Please insert a username');
     } else if (!password) {
-      Alert.alert('plea');
+      Alert.alert('Please insert a password');
     } else {
       AsyncStorage.getItem('usserLoggedIn', (err, result) => {
         if (err) {
@@ -74,8 +74,8 @@ const LoginScreen = ({ navigation }) => {
       />
       <Text style={styles.labels}>Enter Username</Text>
 
-      <TouchableHighlight onPress={loginUser} underlayColor="#00ffff">
-        <Text style={styles.buttons}>Register</Text>
+      <TouchableHighlight onPress={loginUser} underlayColor="#00ff4f">
+        <Text style={styles.buttons}>Login</Text>
       </TouchableHighlight>
 
       <TouchableHighlight onPress={cancelLogin} underlayColor="#00ffff">
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingBottom: '45%',
+    color: '#ffffff',
     paddingTop: '5%',
   },
   heading: {
@@ -105,19 +106,24 @@ const styles = StyleSheet.create({
     marginTop: 15,
     borderWidth: 1,
     height: 45,
+    borderColor: '#ffffff',
+    borderRadius: 15,
+    borderBottomColor: '#ff0000',
     fontSize: 16,
-    color: '#fff',
+    color: '#ffffff',
   },
   labels: {
     paddingBottom: 10,
     fontSize: 15,
+    color: '#ffffff',
     fontWeight: 'bold',
   },
   buttons: {
+    borderRadius: 15,
     padding: 15,
     margin: 5,
     fontSize: 16,
-    backgroundColor: '#DDDDDD',
+    backgroundColor: '#DD3D34',
     width: 150,
     height: 50,
     textAlign: 'center',

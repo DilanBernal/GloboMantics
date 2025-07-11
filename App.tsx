@@ -4,13 +4,24 @@ import HomeScreen from './app/views/Home.tsx';
 import AboutScreen from './app/views/About.tsx';
 import LoginScreen from './app/views/Login.jsx';
 import RegisterScreen from './app/views/Register.jsx';
+import GloboHeader from './app/components/Header.jsx';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer theme={DarkTheme}>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={RegisterScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="About"
           component={AboutScreen}
@@ -19,17 +30,7 @@ const App = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'GloboMantics' }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ title: 'Login' }}
-        />
-        <Stack.Screen
-          name="Register"
-          component={RegisterScreen}
-          options={{ title: 'Register' }}
+          options={{ header: () => <GloboHeader /> }}
         />
       </Stack.Navigator>
     </NavigationContainer>
