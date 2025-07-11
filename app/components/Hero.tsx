@@ -2,7 +2,7 @@ import { StyleSheet, Image } from 'react-native';
 
 const Hero = () => {
   return (
-    <Image style={styles.heroImage} source={require('./')} resizeMode="cover" />
+    <Image style={styles.heroImage} source={require('../assets/img/OpethImage.jpg')} resizeMode="center" />
   );
 };
 
