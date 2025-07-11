@@ -28,26 +28,26 @@ const LoginScreen = ({ navigation }) => {
     } else if (!password) {
       Alert.alert('Please insert a password');
     } else {
-      AsyncStorage.getItem('usserLoggedIn', (err, result) => {
+      AsyncStorage.getItem('userLoggedIn', (err, result) => {
         if (err) {
         }
         if (result !== 'none') {
           Alert.alert('Someone already logged on');
           navigation.navigate('Home');
         } else {
-          AsyncStorage.getItem(userName, (er, result) => {
-            if (er) {
-            }
+          AsyncStorage.getItem(userName, (err, result) => {
             if (result !== null) {
               if (result !== password) {
                 Alert.alert('Password incorrect');
               } else {
-                AsyncStorage.setItem('usserLoggedIn', userName, (e, result) => {
-                  if (er) {
-                  }
-                  Alert.alert(`${userName} Logged in`);
-                  navigation.navigate('Home');
-                });
+                AsyncStorage.setItem(
+                  'userLoggedIn',
+                  userName,
+                  (er, result) => {
+                    Alert.alert(`${userName} Logged in`);
+                    navigation.navigate('Home');
+                  },
+                );
               }
             }
           });
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     paddingTop: '5%',
   },
   heading: {
+    color: '#ffffff',
     fontSize: 20,
     fontWeight: 'bold',
   },

@@ -34,6 +34,7 @@ const GloboHeader = () => {
         });
       } else {
         setIsLoggedIn(true);
+        setLoggedUser(result);
       }
     });
   });
