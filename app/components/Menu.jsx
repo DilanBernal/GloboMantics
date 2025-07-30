@@ -1,4 +1,4 @@
-import { StyleSheet, View, TouchableOpacity, Text, Alert } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Menu = () => {
@@ -9,7 +9,7 @@ const Menu = () => {
       <View style={styles.buttonRow}>
         <TouchableOpacity
           style={styles.buttonStyles}
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate('Videos')}
         >
           <Text style={styles.buttonText}>Lessons</Text>
         </TouchableOpacity>
